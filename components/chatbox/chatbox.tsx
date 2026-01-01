@@ -2,24 +2,15 @@
 import { Conversation, ConversationContent, ConversationEmptyState, ConversationScrollButton } from '@/components/ai-elements/conversation';
 import { Message, MessageContent, MessageResponse } from '@/components/ai-elements/message';
 import { PromptInput, PromptInputTextarea, PromptInputSubmit } from '@/components/ai-elements/prompt-input';
-import { MessageSquare } from 'lucide-react';
 import { useState } from 'react';
 import { useChat } from '@ai-sdk/react';
 import { DefaultChatTransport } from 'ai';
-import { Confirmation, ConfirmationAccepted, ConfirmationAction, ConfirmationActions, ConfirmationRejected, ConfirmationRequest, ConfirmationTitle } from "@/components/ai-elements/confirmation";
-import { CheckIcon, XIcon } from "lucide-react";
-import { nanoid } from "nanoid";
-import { Suggestion, Suggestions } from '@/components/ai-elements/suggestion';
 import { Tool, ToolContent, ToolHeader, ToolInput, ToolOutput } from '@/components/ai-elements/tool';
-
-const suggestions = [
-  'Can you explain how to play tennis?',
-  'What is the weather in Tokyo?',
-  'How do I make a really good fish taco?',
-];
+import { MessageSquare, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function Chatbox() {
   const [input, setInput] = useState('');
+  const [expanded, setExpanded] = useState(true);
   const { messages, sendMessage, status } = useChat({
     transport: new DefaultChatTransport({
         api: '/api/chat',
@@ -40,8 +31,13 @@ export default function Chatbox() {
     }
   };
   return (
-    <div className="max-w-4xl mx-auto p-6 relative size-full rounded-lg border h-[600px]">
-      <div className="flex flex-col h-full">
+    <div className="max-w-4xl mx-auto relative size-full rounded-lg border">
+      <div className="flex items-center justify-between bg-gray-100 p-2 rounded-t-lg cursor-pointer" onClick={() => setExpanded(!expanded)}>
+        <span className="font-semibold">AI Chat</span>
+        {expanded ? <ChevronDown size={20} /> : <ChevronUp size={20} />}
+      </div>
+      
+      {expanded && (<div className="p-4 flex flex-col h-[600px]">
         <Conversation>
           <ConversationContent>
             {messages.length === 0 ? (
@@ -84,51 +80,6 @@ export default function Chatbox() {
                 </Message>
               ))
             )}
-    {/* <Confirmation approval={{ id: nanoid() }} state="approval-requested">
-      <ConfirmationTitle>
-        <ConfirmationRequest>
-          This tool wants to execute a query on the production database:
-          <code className="mt-2 block rounded bg-muted p-2 text-sm">
-            SELECT * FROM users WHERE role = &apos;admin&apos;
-          </code>
-        </ConfirmationRequest>
-        <ConfirmationAccepted>
-          <CheckIcon className="size-4 text-green-600 dark:text-green-400" />
-          <span>You approved this tool execution</span>
-        </ConfirmationAccepted>
-        <ConfirmationRejected>
-          <XIcon className="size-4 text-destructive" />
-          <span>You rejected this tool execution</span>
-        </ConfirmationRejected>
-      </ConfirmationTitle>
-      <ConfirmationActions>
-        <ConfirmationAction
-          onClick={() => {
-            // In production, call respondToConfirmationRequest with approved: false
-          }}
-          variant="outline"
-        >
-          Reject
-        </ConfirmationAction>
-        <ConfirmationAction
-          onClick={() => {
-            // In production, call respondToConfirmationRequest with approved: true
-          }}
-          variant="default"
-        >
-          Approve
-        </ConfirmationAction>
-      </ConfirmationActions>
-    </Confirmation>*/}
-          {/* <Suggestions className='flex-col'>
-            {suggestions.map((suggestion) => (
-              <Suggestion
-                key={suggestion}
-                onClick={suggestion=> sendMessage({ text: suggestion })}
-                suggestion={suggestion}
-              />
-            ))}
-          </Suggestions>  */}
           </ConversationContent>
           <ConversationScrollButton />
         </Conversation>
@@ -150,6 +101,7 @@ export default function Chatbox() {
           />
         </PromptInput>
       </div>
+      )}
     </div>
   );
 };
