@@ -126,6 +126,7 @@ This project is intentionally simplified, but it is designed to be extended. Pos
      - PostgreSQL
      - Nginx
      - Redis
+     - BullMQ  
      - BullMQ worker  
    - Enable one-command local deployment
 
