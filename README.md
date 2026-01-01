@@ -143,3 +143,30 @@ This project is intentionally simplified, but it is designed to be extended. Pos
 
 ```bash
 pnpm install
+```
+
+2. Open the file `/lib/langchainAgents.ts`, replace the following configuration with your own OpenAI credentials:
+
+```bash
+const llm = new AzureChatOpenAI({
+  model: "gpt-4o",
+  temperature: 0,
+  maxRetries: 2,
+  azureOpenAIApiKey: "<YOUR_AZURE_API_KEY>",
+  azureOpenAIApiInstanceName: "your-azure-openai-instance",
+  azureOpenAIApiDeploymentName: "gpt-4o",
+  azureOpenAIApiVersion: "your-azure-openai-version",
+});
+```
+
+3. Start the development server:
+   
+```bash
+pnpm dev
+```
+
+4. Open your browser:
+   
+```bash
+http://localhost:3000
+```
