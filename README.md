@@ -9,7 +9,6 @@ This project is a **Next.js-based demo application** that allows users to:
 
 The project demonstrates how to build a **multi-agent AI system** using **Vercel AI SDK + LangChain / LangGraph**, tightly integrated with a modern React frontend.
 
----
 
 ## Tech Stack
 
@@ -46,7 +45,6 @@ The project demonstrates how to build a **multi-agent AI system** using **Vercel
 
 This setup demonstrates how **Vercel AI SDK can seamlessly integrate with LangChain/LangGraph** to build a multi-agent system.
 
----
 
 ## Core Design & Architecture
 
@@ -60,7 +58,6 @@ This setup demonstrates how **Vercel AI SDK can seamlessly integrate with LangCh
 > ⚠️ This is a demo project.  
 > To reduce complexity, no database or Redis is used. All data lives in the server process memory.
 
----
 
 ### Data Flow When Asking AI Questions
 
@@ -83,7 +80,6 @@ When a user asks a question about the data in the chat window, the following hap
      - The execution result  
    - Are streamed and displayed in the client chat UI, so users can see **what happens behind the scenes**.
 
----
 
 ## What This Demo Supports
 
@@ -93,7 +89,6 @@ When a user asks a question about the data in the chat window, the following hap
 - Multi-agent AI orchestration
 - Streaming AI responses with intermediate steps
 
----
 
 ## Future Improvements
 
@@ -130,7 +125,6 @@ This project is intentionally simplified, but it is designed to be extended. Pos
      - BullMQ worker  
    - Enable one-command local deployment
 
----
 
 ## Running the Project Locally
 
