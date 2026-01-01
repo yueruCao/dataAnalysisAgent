@@ -124,6 +124,7 @@ This project is intentionally simplified, but it is designed to be extended. Pos
    - Include:
      - Next.js app
      - PostgreSQL
+     - Nginx
      - Redis
      - BullMQ worker  
    - Enable one-command local deployment
