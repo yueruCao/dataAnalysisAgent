@@ -14,6 +14,15 @@ The project demonstrates how to build a **multi-agent AI system** using **Vercel
 You can click the link below to open the demo: [Click here to access the Demo](http://3.17.5.181/)
 
 
+## What This Demo Supports
+
+- Upload CSV files and instantly visualize data
+- Inline editing of table data
+- Conversational data analysis using AI
+- Multi-agent AI orchestration
+- Streaming AI responses with intermediate steps
+  
+
 ## Tech Stack
 
 ### Frontend
@@ -84,14 +93,6 @@ When a user asks a question about the data in the chat window, the following hap
      - The execution result  
    - Are streamed and displayed in the client chat UI, so users can see **what happens behind the scenes**.
 
-
-## What This Demo Supports
-
-- Upload CSV files and instantly visualize data
-- Inline editing of table data
-- Conversational data analysis using AI
-- Multi-agent AI orchestration
-- Streaming AI responses with intermediate steps
 
 
 ## Future Improvements
