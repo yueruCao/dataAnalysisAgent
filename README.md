@@ -9,11 +9,9 @@ This project is a **Next.js-based demo application** that allows users to:
 
 The project demonstrates how to build a **multi-agent AI system** using **Vercel AI SDK + LangChain / LangGraph**, tightly integrated with a modern React frontend.
 
-## Demo
+## Online Demo
 
-You can click the link below to open the demo:
-
-[Click here to access the Demo](http://3.17.5.181/)
+You can click the link below to open the demo: [Click here to access the Demo](http://3.17.5.181/)
 
 
 ## Tech Stack
